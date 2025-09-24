@@ -47,6 +47,11 @@ namespace Reto1.API.Services
                 throw new ArgumentNullException(nameof(existingMug));
             }
 
+            existingMug.Sku = mugJson.Sku;
+            existingMug.Color = mugJson.Color;
+            existingMug.Price = mugJson.Price;
+            existingMug.CapacityInMl = mugJson.CapacityInMl;
+
             _mugsRepository.Update(existingMug);
             await _mugsRepository.Save();
             return mugJson;
